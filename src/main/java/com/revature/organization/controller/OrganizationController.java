@@ -42,7 +42,7 @@ public class OrganizationController {
 	}
 
 	@GetMapping("/organization/{id}")
-	public Organization get(@PathVariable int id) {
+	public Organization get(@PathVariable Long id) {
 		Organization organizationObj= organizationService.get(id);
 		if(organizationObj==null) {
 		//	throw new RuntimeException("Employee with "+id+" not found");
@@ -51,7 +51,7 @@ public class OrganizationController {
 	}
 	
 	@DeleteMapping("/organization/{id}")
-	public String delete(@PathVariable int id) {
+	public String delete(@PathVariable Long id) {
 		organizationService.delete(id);
 		return "Employee Deleted with id:"+id;
 	}

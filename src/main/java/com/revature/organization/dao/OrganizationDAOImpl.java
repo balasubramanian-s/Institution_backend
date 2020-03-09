@@ -26,7 +26,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 	}
 
 	@Override
-	public Organization get(int id) {
+	public Organization get(Long id) {
 		Session curentSession = entityManager.unwrap(Session.class);
 		Organization organizationObject = curentSession.get(Organization.class, id);
 		return organizationObject;
@@ -41,7 +41,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 	
 
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Organization organizationObject=currentSession.get(Organization.class,id);
 		currentSession.delete(organizationObject);
