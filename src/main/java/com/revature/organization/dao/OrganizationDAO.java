@@ -8,11 +8,14 @@ public interface OrganizationDAO {
 	
 	List<Organization> get();
 	
+
+	
 	Organization get(Long id);
 	
 	void save(Organization org);
 	
 	void delete(Long id);
-
+	
+	void changeStatus(Long id);
 	
 }

@@ -47,4 +47,20 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 		currentSession.delete(organizationObject);
 	}
 
+	@Override
+	public void changeStatus(Long id) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Organization organizationObject=currentSession.get(Organization.class,id);
+		boolean status=organizationObject.getIsActive();
+		organizationObject.setIsActive(!status);
+		currentSession.update(organizationObject);
+		
+		
+		
+	}
+
+	
+
+	
+
 }

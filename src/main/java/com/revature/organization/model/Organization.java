@@ -2,7 +2,8 @@ package com.revature.organization.model;
 
 
 
-import java.time.Instant;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,9 +27,9 @@ public class Organization {
 	@Column(name="`university`")
 	private String university;
 	@Column(name="`created_on`")
-	 private Instant createdon;
+	 private LocalDateTime createdon;
 	@Column(name="`modified_on`")
-	private Instant modifiedon;
+	private LocalDateTime modifiedon;
 	@Column(name="`isactive`")
 	private Boolean isActive=true;
 	
@@ -69,19 +70,21 @@ public class Organization {
 		this.university = university;
 	}
 
-	public Instant getCreatedon() {
+
+
+	public LocalDateTime getCreatedon() {
 		return createdon;
 	}
 
-	public void setCreatedon(Instant ts) {
-		this.createdon = ts;
+	public void setCreatedon(LocalDateTime createdon) {
+		this.createdon = createdon;
 	}
 
-	public Instant getModifiedon() {
+	public LocalDateTime getModifiedon() {
 		return modifiedon;
 	}
 
-	public void setModifiedon(Instant modifiedon) {
+	public void setModifiedon(LocalDateTime modifiedon) {
 		this.modifiedon = modifiedon;
 	}
 

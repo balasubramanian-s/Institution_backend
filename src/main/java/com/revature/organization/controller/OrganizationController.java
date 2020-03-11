@@ -33,6 +33,7 @@ public class OrganizationController {
 		return organizationService.get();
 
 	}
+	
 
 	@PostMapping("/organization")
 	public Organization save(@RequestBody Organization organizationObj) {
@@ -44,9 +45,7 @@ public class OrganizationController {
 	@GetMapping("/organization/{id}")
 	public Organization get(@PathVariable Long id) {
 		Organization organizationObj= organizationService.get(id);
-		if(organizationObj==null) {
-		//	throw new RuntimeException("Employee with "+id+" not found");
-		}
+		
 		return organizationObj;
 	}
 	
@@ -61,8 +60,11 @@ public class OrganizationController {
 		organizationService.save(organizationObj);
 		return organizationObj;
 	}
-	
-	
+	@PutMapping("/organization/status/{id}")
+	public  void changeStatus(@PathVariable Long id) {
+		organizationService.changeStatus(id);
+		
+	}
 	
 	
 	

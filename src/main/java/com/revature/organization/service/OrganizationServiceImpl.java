@@ -2,7 +2,8 @@ package com.revature.organization.service;
 
 
 
-import java.time.Instant;
+
+import java.time.LocalDateTime;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 	@Transactional
 	@Override
 	public void save(Organization org) {
-		Instant ts = Instant.now();	
+		LocalDateTime ts = LocalDateTime.now();	
 		if(org.getId()==null) {		
 			org.setIsActive(true);
 			 org.setCreatedon(ts);
@@ -52,5 +53,13 @@ public class OrganizationServiceImpl implements OrganizationService {
 		organizationDAO.delete(id);
 
 	}
+	@Transactional
+	@Override
+	public void changeStatus(Long id) {
+		organizationDAO.changeStatus(id);
+		
+	}
+
+	
 
 }
