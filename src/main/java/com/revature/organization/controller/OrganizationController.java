@@ -29,10 +29,15 @@ public class OrganizationController {
 	
 	@GetMapping("/organization")
 	public List<Organization> get() {
-
 		return organizationService.get();
 
 	}
+	@GetMapping("/organization/getId")
+	public List<Organization> getIdName() {
+		return organizationService.getIdName();
+
+	}
+	
 	
 
 	@PostMapping("/organization")
@@ -44,10 +49,11 @@ public class OrganizationController {
 
 	@GetMapping("/organization/{id}")
 	public Organization get(@PathVariable Long id) {
-		Organization organizationObj= organizationService.get(id);
-		
+		Organization organizationObj= organizationService.get(id);		
 		return organizationObj;
 	}
+	
+	
 	
 	@DeleteMapping("/organization/{id}")
 	public String delete(@PathVariable Long id) {

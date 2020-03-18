@@ -24,6 +24,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 		List<Organization> list = query.getResultList();
 		return list;
 	}
+	
 
 	@Override
 	public Organization get(Long id) {
@@ -59,8 +60,14 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 		
 	}
 
-	
 
-	
+	@Override
+	public List<Organization> getIdName() {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query<Organization> query = currentSession.createQuery("from Organization Where isActive=1", Organization.class);
+		List<Organization> list = query.getResultList();
+		return list;
+		
+	}
 
 }
